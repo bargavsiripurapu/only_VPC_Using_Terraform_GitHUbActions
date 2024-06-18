@@ -11,7 +11,7 @@ terraform {
     dynamodb_table = "terraform-lock-table"
     key            = "dev/terraform.tfstate"
     region         = "us-east-1"
-    encrypt        = true
+    encrypt        = false
     
   }
 }
