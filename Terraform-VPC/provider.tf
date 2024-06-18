@@ -10,6 +10,7 @@ terraform {
     bucket = "terraform-remote-backend-s3-githubactions"
     key    = "dev/terraform.tfstate"
     region = "us-east-1"
+    dynamodb_table = "terraform-lock-table"
   }
 }
 
