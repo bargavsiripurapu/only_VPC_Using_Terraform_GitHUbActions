@@ -13,26 +13,3 @@ variable "ec2_names" {
     type = list(string)
     default = ["WebServer1", "WebServer2"]
 }
-
-variable "min_size" {
-  description = "The minimum number of EC2 Instances in the ASG"
-  type        = number
-  default     = 2
-}
-
-variable "max_size" {
-  description = "The maximum number of EC2 Instances in the ASG"
-  type        = number
-  default     = 5
-}
-
-variable "desired_capacity" {
-  description = "The desired number of EC2 Instances in the ASG"
-  type        = number
-  default     = 3
-}
-
-variable "target_group_arns" {
-  description = "tg arn for EC2"
-  type = string
-}
