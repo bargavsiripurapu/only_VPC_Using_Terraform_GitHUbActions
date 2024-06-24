@@ -31,3 +31,8 @@ variable "desired_capacity" {
   type        = number
   default     = 3
 }
+
+variable "aws_lb_target_group.tg.arn" {
+  description = "tg arn for EC2"
+  type = string
+}
