@@ -27,11 +27,7 @@ resource "aws_autoscaling_group" "auto_scaling_group" {
   vpc_zone_identifier = var.subnets
   target_group_arns   = [aws_lb_target_group.tg.arn]
 
-  launch_template {
-    id      = aws_launch_template.launch_template.id
-    version = "$Latest"
-  }
-
+  
   tag {
     key                 = "Name"
     value               = var.ec2_names[0] # Assuming all instances will have the same name tag for simplicity
