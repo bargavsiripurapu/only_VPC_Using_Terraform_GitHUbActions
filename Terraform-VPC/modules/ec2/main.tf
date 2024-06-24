@@ -25,8 +25,7 @@ resource "aws_autoscaling_group" "auto_scaling_group" {
   max_size            = var.max_size
   min_size            = var.min_size
   vpc_zone_identifier = var.subnets
-  target_group_arns   = [aws_lb_target_group.tg.arn]
-
+  target_group_arns   = [var.target_group_arn_id]
   
   tag {
     key                 = "Name"
