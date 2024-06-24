@@ -32,7 +32,7 @@ variable "desired_capacity" {
   default     = 3
 }
 
-variable "target_group_arn_id" {
+variable "target_group_arns" {
   description = "tg arn for EC2"
   type = string
 }
