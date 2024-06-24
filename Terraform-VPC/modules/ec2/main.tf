@@ -18,22 +18,3 @@ resource "aws_instance" "web" {
     Name = var.ec2_names[count.index]
   }
 }
-
-# Auto Scaling Group
-resource "aws_autoscaling_group" "auto_scaling_group" {
-  desired_capacity    = var.desired_capacity
-  max_size            = var.max_size
-  min_size            = var.min_size
-  vpc_zone_identifier = var.subnets
-  target_group_arns = [aws_lb_target_group.tg.arn]
-  
-  tag {
-    key                 = "Name"
-    value               = var.ec2_names[0] # Assuming all instances will have the same name tag for simplicity
-    propagate_at_launch = true
-  }
-
-  lifecycle {
-    create_before_destroy = true
-  }
-}
