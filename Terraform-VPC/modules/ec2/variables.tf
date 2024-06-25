@@ -13,3 +13,8 @@ variable "ec2_names" {
     type = list(string)
     default = ["WebServer1", "WebServer2"]
 }
+
+variable "target_group_arn" {
+  description = "The ARN of the target group"
+  type        = string
+}
