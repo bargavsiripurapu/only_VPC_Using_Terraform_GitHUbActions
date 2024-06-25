@@ -25,16 +25,21 @@ ebs_block_device {
 resource "aws_autoscaling_group" "aws_asg" {
   # no of instances
   desired_capacity = 3
-  max_size         = 2
-  min_size         = 5
+  max_size         = 5
+  min_size         = 2
 
   # Connect to the target group
   target_group_arns = [aws_lb_target_group.tg.arn]
-
-  
+  vpc_zone_identifier  = var.subnets[count.index]
 
   launch_template {
     id      = aws_launch_template.web.id
     version = "$Latest"
+  }
+
+  tag {
+    key                 = "Name"
+    value               = "web-server"
+    propagate_at_launch = true
   }
 }
