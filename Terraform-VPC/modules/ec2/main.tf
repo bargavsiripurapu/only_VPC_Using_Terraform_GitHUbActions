@@ -31,7 +31,7 @@ resource "aws_autoscaling_group" "aws_asg" {
   # Connect to the target group
   target_group_arns = [aws_lb_target_group.tg.arn]
 
-  vpc_zone_identifier = [aws_subnet.subnets[count.index].id]
+  
 
   launch_template {
     id      = aws_launch_template.web.id
